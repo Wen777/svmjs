@@ -1,0 +1,21 @@
+# sudo: required
+language: node_js
+
+node_js:
+  - "4.1"
+
+services:
+  - mongodb
+
+cache:
+  directories:
+    - .meteor/local/build/programs/server/assets/packages
+    - ~/.meteor
+#    - node_modules
+#    - webapp/node_modules
+
+before_install:
+- curl https://install.meteor.com | /bin/sh
+
+script:
+  - "./test.sh"
